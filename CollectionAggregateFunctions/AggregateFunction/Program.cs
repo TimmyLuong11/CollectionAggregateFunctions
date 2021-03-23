@@ -31,7 +31,7 @@ namespace AggregateFunction
                 }
                 else
                 {
-                    examGrade[grade] = examGrade[grade] + 1;
+                    examGrade[grade] += 1;
                 }
                 Console.WriteLine("Please enter in your next exam grade! Type \'q\' to quit.");
                 answer = Console.ReadLine();
