@@ -36,7 +36,20 @@ namespace AggregateFunction
                 Console.WriteLine("Please enter in your next exam grade! Type \'q\' to quit.");
                 answer = Console.ReadLine();
             } while (answer.ToLower() != "q");
-            
+
+            //Calculating the min and max
+            double min = grades[0], max = grades[0];
+            foreach (double index in grades)
+            {
+                if (index < min)
+                {
+                    min = index;
+                }
+                else
+                {
+                    max = index;
+                }
+            }
 
             //Finding the total for the exam grades
             for (int i = 0; i < grades.Count; i++)
@@ -54,14 +67,12 @@ namespace AggregateFunction
                 }
             }
 
-            //Sortting the exam grade
-            grades.Sort();
-
             //Outputting the results to the user
-            Console.WriteLine($"The minimum grade is {grades[0]}.");
-            Console.WriteLine($"The maximum grade is {grades[grades.Count-1]}.");
+            Console.WriteLine($"The minimum grade is {min.ToString("N2")}.");
+            Console.WriteLine($"The maximum grade is {max.ToString("N2")}.");
             Console.WriteLine($"The average grade is {(sum / grades.Count).ToString("N2")}.");
-            Console.WriteLine($"The grade that appears the most time is {grade} with {maxOccurrences} occurrence.");
+            Console.WriteLine($"The grade that appears the most time is {grade.ToString("N2")} with {maxOccurrences} occurrence.");
+           
         }
     }
 }
