@@ -10,12 +10,12 @@ namespace AggregateFunction
             //Declaring Variables
             List<double> grades = new List<double>();
             Dictionary<double, int> examGrade = new Dictionary<double, int>();
-            string answer;
+            string answer = "";
             double grade,sum = 0;
             int maxOccurrences = 0;
 
             //Asking the user for exam grades 
-            Console.WriteLine("Please enter in your exam grade:");
+            Console.WriteLine("Please enter in your exam grade!");
             answer = Console.ReadLine();
             do
             {
@@ -60,10 +60,10 @@ namespace AggregateFunction
             //Calculating the mode
             foreach (double key in examGrade.Keys)
             {
-                double exam = key;
-                if (examGrade[grade] > maxOccurrences)
+                 double exam = key;
+                if (examGrade[exam] > maxOccurrences)
                 {
-                    maxOccurrences = examGrade[grade];
+                    maxOccurrences = examGrade[exam];
                 }
             }
 
@@ -71,8 +71,14 @@ namespace AggregateFunction
             Console.WriteLine($"The minimum grade is {min.ToString("N2")}.");
             Console.WriteLine($"The maximum grade is {max.ToString("N2")}.");
             Console.WriteLine($"The average grade is {(sum / grades.Count).ToString("N2")}.");
-            Console.WriteLine($"The grade that appears the most time is {grade.ToString("N2")} with {maxOccurrences} occurrence.");
-           
+            foreach (double key in examGrade.Keys)
+            {
+                double exam = key;
+                if (examGrade[exam] == maxOccurrences)
+                {
+                    Console.WriteLine($"The grade that appears the most time is {exam.ToString("N2")} with {maxOccurrences} occurrence.");
+                }
+            } 
         }
     }
 }
