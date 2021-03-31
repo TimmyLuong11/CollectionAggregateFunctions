@@ -45,7 +45,7 @@ namespace AggregateFunction
                 {
                     min = index;
                 }
-                else
+                if (max < index)
                 {
                     max = index;
                 }
